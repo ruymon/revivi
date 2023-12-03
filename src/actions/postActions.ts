@@ -1,6 +1,6 @@
 "use server";
 
-import { NewPostFormValues } from "@/components/app/Posts/NewPost";
+import { NewPostFormValues } from "@/components/app/posts/NewPost";
 import { formatPostsList } from "@/dto/postsDto";
 import { createSupabaseServerClient } from "@/lib/database/server";
 import { DatabasePostQueryResponse, Post } from "@/types/posts";

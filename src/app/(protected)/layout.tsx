@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/app/Navbar/Navbar";
 import { AUTH_LOGIN_ROUTE } from "@/constants/auth";
 import { ERROR_MESSAGES } from "@/constants/errors";
 import { createSupabaseServerClient } from "@/lib/database/server";
@@ -22,13 +21,5 @@ export default async function ProtectedRootLayout({ children }: ProtectedRootLay
     permanentRedirect(`${AUTH_LOGIN_ROUTE}?message=${ERROR_MESSAGES.AUTH.NOT_AUTHORIZED}`)
   }
 
-  return (
-    <div className="flex w-full flex-col gap-8">
-      <Navbar />
-
-      <main className="flex-1">
-        {children}
-      </main>
-    </div>
-  )
+  return { children }
 }

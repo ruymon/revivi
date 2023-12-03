@@ -6,14 +6,14 @@ import { Profile } from "@/types/profile"
 import { cookies } from "next/headers"
 import { cache } from "react"
 
-export const getProfile = cache(async (): Promise<Profile> => {
+export const getProfile = cache(async (): Promise<Profile | null> => {
   const cookieStore = cookies()
   const supabase = createSupabaseServerClient(cookieStore)
 
   const { data: { user } } = await supabase.auth.getUser()
 
   if (!user) {
-    throw new Error('User not found')
+    return null;
   }
 
   const { data: profileData } = await supabase.from('profiles').select(`*`).eq('id', user.id).single()

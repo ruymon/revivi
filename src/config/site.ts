@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: 'Revivi',
+  name: 'Re-Vivi',
   description: 'Lembre-se das coisas boas da vida',
-  url: 'https://tx.shadcn.com',
-  ogImage: "https://tx.shadcn.com/og.jpg",
+  url: 'https://revivi.vercel.app',
+  ogImage: 'https://revivi.vercel.app/og.png',
   links: {
-    github: "https://github.com/shadcn/taxonomy",
+    github: "https://github.com/ruymon/revivi",
   },
 }

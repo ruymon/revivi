@@ -1,4 +1,5 @@
 import { signOut } from '@/actions/authActions';
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,7 +7,6 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/DropdownMenu';
 import { Menu } from 'lucide-react';
-import { NavbarThemeSwitcher } from './NavbarThemeSwitcher';
 
 interface NavbarDropdownMenuProps {};
 
@@ -18,7 +18,9 @@ export function NavbarDropdownMenu({}: NavbarDropdownMenuProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' sideOffset={8}>
         <DropdownMenuItem>
-          <NavbarThemeSwitcher />
+          <ThemeSwitcher>
+            Alternar exibição
+          </ThemeSwitcher>
         </DropdownMenuItem>
         <DropdownMenuItem>Configurações</DropdownMenuItem>
         <DropdownMenuItem>Sobre</DropdownMenuItem>

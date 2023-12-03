@@ -51,5 +51,5 @@ export async function signOut() {
 
   await supabase.auth.signOut()
 
-  return permanentRedirect(AUTH_LOGIN_ROUTE)
+  return permanentRedirect('/')
 }
