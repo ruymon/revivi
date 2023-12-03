@@ -11,8 +11,6 @@ export async function createPost(data: NewPostFormValues) {
   const cookieStore = cookies();
   const supabase = createSupabaseServerClient(cookieStore);
 
-  console.log("data", data);
-
   const { error } = await supabase.from("posts").insert(data);
 
   if (error) {

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/Form";
 import { Textarea } from "@/components/ui/Textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { PostActionButton } from "./PostActionButton";
@@ -26,6 +27,8 @@ const newPostFormSchema = z.object({
 export type NewPostFormValues = z.infer<typeof newPostFormSchema>;
 
 export function NewPost({ avatarUrl, fullName }: NewPostProps) {
+  const router = useRouter();
+
   const newPostForm = useForm<NewPostFormValues>({
     resolver: zodResolver(newPostFormSchema),
     defaultValues: {
@@ -36,6 +39,8 @@ export function NewPost({ avatarUrl, fullName }: NewPostProps) {
   async function onSubmit(values: NewPostFormValues) {
     try {
       await createPost(values)
+      newPostForm.reset()
+      router.refresh()
     } catch (error) {
       console.error(error)
     }

@@ -2,6 +2,7 @@ import { signOut } from "@/actions/authActions";
 import { getProfile } from "@/actions/profileActions";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Button, buttonVariants } from "@/components/ui/Button";
+import { siteConfig } from "@/config/site";
 import { AUTH_LOGIN_ROUTE } from "@/constants/auth";
 import { Library } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +14,7 @@ export async function Navbar() {
     <nav className='flex items-center justify-between py-6 bg-background z-50 w-full max-w-5xl mx-auto sticky top-0'>
       <div className="flex items-center gap-2">
         <Library className="w-6 h-9 md:w-7 md:h-7 text-primary" />
-        <span className="text-xl md:text-2xl font-bold">Revivi</span>
+        <span className="text-xl md:text-2xl font-bold">{siteConfig.name}</span>
       </div>
 
       {/* <div className="flex items-center gap-6">
