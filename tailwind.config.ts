@@ -1,4 +1,6 @@
+import tailwindScrollbar from "tailwind-scrollbar";
 import { type Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
@@ -8,6 +10,9 @@ export default {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+  ],
+  safelist: [
+    'bg-background',
   ],
   theme: {
     container: {
@@ -78,5 +83,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    tailwindAnimate,
+    tailwindScrollbar
+  ],
 } satisfies Config;

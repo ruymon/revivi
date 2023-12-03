@@ -1,10 +1,16 @@
-import { withAuth } from "@kinde-oss/kinde-auth-nextjs/middleware";
-import { type NextRequest } from "next/server";
+import { createSupabaseMiddlewareClient } from '@/lib/database/middleware'
+import { NextResponse, type NextRequest } from 'next/server'
 
-export default function middleware(req: NextRequest) {
-  return withAuth(req);
+export async function middleware(request: NextRequest) {
+  try {
+    const { supabase, response } = createSupabaseMiddlewareClient(request)
+    await supabase.auth.getSession()
+    return response
+  } catch (e) {
+    return NextResponse.next({
+      request: {
+        headers: request.headers,
+      },
+    })
+  }
 }
-
-export const config = {
-  matcher: ["/dashboard"],
-};

@@ -1,7 +1,12 @@
-export default function Home() {
+import { siteConfig } from "@/config/site";
+
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen">
-      <h1>Hello World</h1>
+    <main className="flex-1 flex items-center justify-center gap-6">
+      <header>
+        <h1>{siteConfig.name}</h1>
+        <span>{siteConfig.description}</span>
+      </header>
     </main>
   )
 }
